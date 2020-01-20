@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:altba/src/bloc/provider.dart';
+import 'package:altba/src/providers/usuario_provider.dart';
+
+import 'package:altba/src/utils/utils.dart';
 
 class LoginPage extends StatelessWidget {
+
+  final usuarioProvider = new UsuarioProvider();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +30,8 @@ class LoginPage extends StatelessWidget {
 
           SafeArea(
             child: Container(
-              height: 180.0,
+              color: Colors.white,
+              height: 120.0,
             ),
           ),
 
@@ -36,12 +43,16 @@ class LoginPage extends StatelessWidget {
             ),
             child: Column(
               children: <Widget>[
-                /*_logoLogin(),*/
-                SizedBox( height: 60.0),
-                _crearEmail( bloc ),
-                SizedBox( height: 40.0),
-                _crearPassword( bloc ),
                 SizedBox( height: 30.0),
+                Image.asset(
+                  'assets/images/altba-negro.png',
+                  width: 250,
+                ),
+                SizedBox( height: 30.0),
+                _crearEmail( bloc ),
+                SizedBox( height: 20.0),
+                _crearPassword( bloc ),
+                SizedBox( height: 50.0),
                 _crearBoton( bloc ),
               ],
             ),
@@ -54,21 +65,6 @@ class LoginPage extends StatelessWidget {
       ),
     );
   }
-
-   /*_logoLogin() {
-
-    return Container(
-      child: ListView(
-        children: [
-          Image.asset(
-            'assets/images/menu-img.jpg',
-            height: 200,
-          ),
-        ],
-      ),
-    );
-  }*/
-
 
   Widget _crearEmail(LoginBloc bloc) {
 
@@ -85,7 +81,7 @@ class LoginPage extends StatelessWidget {
             icon: Icon( Icons.alternate_email, color: Colors.black),
             hintText: 'usuario@correo.com',
             labelText: 'Correo electrónico',
-            counterText: snapshot.data,
+            //counterText: snapshot.data,
             errorText: snapshot.error
           ),
           onChanged: bloc.changeEmail,
@@ -109,7 +105,7 @@ class LoginPage extends StatelessWidget {
               icon: Icon( Icons.lock_outline, color: Colors.black),
               hintText: '**********',
               labelText: 'Contraseña',
-              counterText: snapshot.data,
+              //counterText: snapshot.data,
               errorText: snapshot.error
             ),
             onChanged: bloc.changePassword,
@@ -142,14 +138,20 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  _login(LoginBloc bloc, BuildContext context){
+  _login(LoginBloc bloc, BuildContext context) async {
 
-    print('================');
-    print('Email: ${ bloc.email }');
-    print('Password: ${ bloc.password }');
-    print('================');
+    Map info = await usuarioProvider.login(bloc.email, bloc.password);
 
-    Navigator.pushReplacementNamed(context, 'home');
+    if ( info['ok'] ){
+
+      Navigator.pushReplacementNamed(context, 'home');
+
+    } else {
+
+      mostrarAlerta( context, info['mensaje'] );
+
+    }
+
   }
 
 }

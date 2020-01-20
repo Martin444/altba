@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Altba Inicio')
+        title: Text('Altba Inicio'),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

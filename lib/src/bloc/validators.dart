@@ -15,7 +15,7 @@ class Validators {
       if ( regExp.hasMatch( email ) ) {
         sink.add( email );
       } else {
-        sink.addError('Email no es correcto');
+        sink.addError('El email no es correcto');
       }
 
     }
@@ -28,7 +28,7 @@ class Validators {
       if ( password.length >= 6 ) {
         sink.add( password );
       } else {
-        sink.addError('La contraseña es incorrecta');
+        sink.addError('La contraseña no es correcta');
       }
 
     }
