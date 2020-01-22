@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:altba/src/pages/product/product_page.dart';
 import 'package:altba/src/bloc/provider.dart';
-import 'package:altba/src/pages/favorites/favorites_page.dart';
+
 import 'package:altba/src/pages/login_page.dart';
 import 'package:altba/src/pages/home_page.dart';
 import 'package:altba/src/preferencias_usuario/preferencias_usuario.dart';
