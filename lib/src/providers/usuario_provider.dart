@@ -36,5 +36,22 @@ class UsuarioProvider {
 
   }
 
+  Future<Map<String, dynamic>> logout( String idToken) async {
+
+    final authData = {
+      'idToken'    : idToken
+    };
+
+    final resp = await http.post(
+      'https://identitytoolkit.googleapis.com/v1/accounts:delete?key=$_firebaseToken',
+      body: json.encode( authData )
+    );
+
+    Map<String, dynamic> decodedResp = json.decode( resp.body );
+
+    print(decodedResp);
+
+  }
+
 
 }
