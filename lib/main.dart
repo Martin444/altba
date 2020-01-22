@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:altba/src/pages/product/product_page.dart';
 import 'package:altba/src/bloc/provider.dart';
 import 'package:altba/src/pages/favorites/favorites_page.dart';
 import 'package:altba/src/pages/login_page.dart';
@@ -27,14 +27,14 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Altba',
-        initialRoute: 'favorite',
+        initialRoute: 'prod',
         routes: {
-          'favorite' : ( BuildContext context ) => FavoritesPage(),
+          'prod' : ( BuildContext context ) => ProductPage(),
         },
         theme: ThemeData(
-          primaryColor: Colors.black
+            primaryColor: Colors.black
         ),
-      ), 
+      ),
     );
   }
 }
