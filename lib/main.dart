@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:altba/src/bloc/provider.dart';
-
+import 'package:altba/src/pages/favorites/favorites_page.dart';
 import 'package:altba/src/pages/login_page.dart';
 import 'package:altba/src/pages/home_page.dart';
 import 'package:altba/src/preferencias_usuario/preferencias_usuario.dart';
-
 void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,10 +27,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Altba',
-        initialRoute: 'login',
+        initialRoute: 'favorite',
         routes: {
-          'login' : ( BuildContext context ) => LoginPage(),
-          'home' : ( BuildContext context ) => HomePage(),
+          'favorite' : ( BuildContext context ) => FavoritesPage(),
         },
         theme: ThemeData(
           primaryColor: Colors.black
