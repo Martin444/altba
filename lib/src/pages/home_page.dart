@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:altba/src/widgets/menu_widget.dart';
-
 import 'package:carousel_slider/carousel_slider.dart';
+
+import 'package:altba/src/componentes/home_products.dart';
 
 final List<String> imgList = [
   'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
@@ -16,8 +17,6 @@ final List<String> imgList = [
 class HomePage extends StatelessWidget {
 
   static final String routeName = 'home';
-
-  //final Widget placeholder = Container(color: Colors.grey);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +34,17 @@ class HomePage extends StatelessWidget {
           )
         ],
         ),
-        body: CarouselDemo(),
+        body: ListView(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 15.0),
+                child: Column(children: [
+                  CarouselWithIndicator(),
+                ]
+              )
+            ),
+          ],
+        ),
       drawer: MenuWidget(),
     );
   }
@@ -130,80 +139,5 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
         ),
       ),
     ]);
-  }
-}
-
-class CarouselDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-
-    //Pages covers entire carousel
-    final CarouselSlider coverScreenExample = CarouselSlider(
-      viewportFraction: 1.0,
-      aspectRatio: 2.0,
-      autoPlay: false,
-      enlargeCenterPage: false,
-      items: map<Widget>(
-        imgList,
-        (index, i) {
-          return Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(image: NetworkImage(i), fit: BoxFit.cover),
-            ),
-          );
-        },
-      ),
-    );
-
-    //User input pauses carousels automatic playback
-    final CarouselSlider touchDetectionDemo = CarouselSlider(
-      viewportFraction: 0.9,
-      aspectRatio: 2.0,
-      autoPlay: true,
-      enlargeCenterPage: true,
-      pauseAutoPlayOnTouch: Duration(seconds: 3),
-      items: imgList.map(
-        (url) {
-          return Container(
-            margin: EdgeInsets.all(5.0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(5.0)),
-              child: Image.network(
-                url,
-                fit: BoxFit.cover,
-                width: 1000.0,
-              ),
-            ),
-          );
-        },
-      ).toList(),
-    );
-
-    return MaterialApp(
-      home: Scaffold(
-        body: ListView(
-          children: <Widget>[
-            Padding(
-                padding: EdgeInsets.symmetric(vertical: 15.0),
-                child: Column(children: [
-                  Text('Full Screen Carousel'),
-                  coverScreenExample,
-                ])),
-            Padding(
-                padding: EdgeInsets.symmetric(vertical: 15.0),
-                child: Column(children: [
-                  Text('Carousel With Indecator'),
-                  CarouselWithIndicator(),
-                ])),
-            Padding(
-                padding: EdgeInsets.symmetric(vertical: 15.0),
-                child: Column(children: [
-                  Text('Pause When Touched Carousel'),
-                  touchDetectionDemo,
-                ])),
-          ],
-        ),
-      ),
-    );
   }
 }
