@@ -3,20 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class ProductPage extends StatelessWidget {
+
   String nombreProducto = "Modular Europeo";
   String altoProducto = "190.0 cm";
   String anchoProducto = "240.0 cm";
   String fondoProducto = "55.0 cm";
   String precioProducto = "\$99,000";
   String dropdownValue = 'One';
+
   final List<String> imgList = [
     'https://firebasestorage.googleapis.com/v0/b/altba-e47fe.appspot.com/o/Categorias%2FRoperos%2FRoperoBosnia%2FRopero-Bosnia(1).jpg?alt=media&token=c7ac6618-d923-4daa-ba0d-a4f9930d6fc3',
     'https://firebasestorage.googleapis.com/v0/b/altba-e47fe.appspot.com/o/Categorias%2FRoperos%2FRoperoBosnia%2FRopero-Bosnia.jpg?alt=media&token=ec4334fa-2355-4620-a94b-ae0d5bcd8422',
   ];
-  final List _colores = ["Rojo", "Negro", "Cafe"];
-
-  List<DropdownMenuItem<String>> _dropDownMenuItems;
-
   List<T> map<T>(List list, Function handler) {
     List<T> result = [];
     for (var i = 0; i < list.length; i++) {
