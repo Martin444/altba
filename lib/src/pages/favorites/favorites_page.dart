@@ -7,7 +7,17 @@ class FavoritesPage extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('Favoritos'),
+        title: Text('Altba Inicio'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon( Icons.search),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Icon( Icons.shopping_cart),
+            onPressed: () {},
+          )
+        ],
       ),
       body: Stack(
         children: <Widget>[
