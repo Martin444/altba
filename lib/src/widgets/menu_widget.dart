@@ -14,13 +14,26 @@ class MenuWidget extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
+          /*DrawerHeader(
             child: Container(),
+          ),*/
+          new UserAccountsDrawerHeader(
+            //currentAccountPicture: Image.asset('assets/icon/altba-icon.png'),
+            accountName: Text('Víctor Flores'),
+            accountEmail: Text('test@test.com'),
+          currentAccountPicture: GestureDetector(
+            child: new CircleAvatar(
+              backgroundColor: Colors.white,
+              child: Icon(Icons.person,
+              color: Colors.black,
+              ),
+            ),
+          ),
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/menu-img.jpg'),
                 fit: BoxFit.cover
-              )
+              ),
             ),
           ),
 
