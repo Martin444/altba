@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "743073385991",
+    "firebase_url": "https://altba-e47fe.firebaseio.com",
+    "project_id": "altba-e47fe",
+    "storage_bucket": "altba-e47fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743073385991:android:97dcc4f252cedf61af64a2",
+        "android_client_info": {
+          "package_name": "com.example.altba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743073385991-hncloq78ugqsik9if4dde3n4ii1f5qk7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.altba",
+            "certificate_hash": "011806c80feb58e3f654c8b8840c574bb0f7920b"
+          }
+        },
+        {
+          "client_id": "743073385991-nq14ha09dh2u1fs5pa1f6gt0rl19vtha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCDvZpsoMXuNc0a5hVGoSuoLisg-M8hsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743073385991-nq14ha09dh2u1fs5pa1f6gt0rl19vtha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
